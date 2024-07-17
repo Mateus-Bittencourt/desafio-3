@@ -1,0 +1,16 @@
+.blog {
+  text-align: left;
+  padding-left: 10%;
+  margin-right: 5rem;
+  background: rgba(237, 247, 250, 1);
+}
+
+.cards {
+  display: flex;
+}
+
+.blog h2 {
+  font-size: 24px;
+  padding-top: 1rem;
+  font-weight: 400;
+}

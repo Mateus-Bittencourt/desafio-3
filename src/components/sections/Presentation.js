@@ -1,24 +1,16 @@
 import ButtonA from "../elements/ButtonA";
 import styles from "./Presentation.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 
 function Presentation() {
   const [text, setText] = useState("");
-  const toRotate = ["Mateus Bittencourt! ", "Desenvolvedor Full-Stack "];
+  const toRotate = useMemo(() => ["Mateus Bittencourt!", "Desenvolvedor Full-Stack"], []);
   const [loop, setLoop] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const period = 100;
   const [delta, setDelta] = useState(100);
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      toType();
-    }, delta);
-
-    return () => clearInterval(ticker);
-  }, [text, delta, isDeleting]);
-
-  const toType = () => {
+  const toType = useCallback(() => {
     let i = loop % toRotate.length;
     let fullText = toRotate[i];
     let updateText = isDeleting
@@ -35,7 +27,15 @@ function Presentation() {
       setDelta(period);
       setLoop(loop + 1);
     }
-  };
+  }, [isDeleting, loop, period, text.length, toRotate]);
+
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      toType();
+    }, delta);
+
+    return () => clearInterval(ticker);
+  }, [text, delta, toType]);
 
   return (
     <div id="Presentation" className={styles.presentation}>

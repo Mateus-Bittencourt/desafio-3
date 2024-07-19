@@ -1,0 +1,26 @@
+.footer {
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.footer a {
+  color:rgba(33, 36, 61, 1)
+}
+
+.footer li {
+  margin: 15px;
+}
+
+.footer p {
+  margin-bottom: 25px;
+  margin-top: 0px;
+  font-weight: 400;
+}

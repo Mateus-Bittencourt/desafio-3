@@ -13,7 +13,7 @@ const Navbar = () => {
           <Nav.Link href="#Blog">Blog</Nav.Link>
         </li>
         <li>
-          <Nav.Link href="#Contact">Contato</Nav.Link>
+          <Nav.Link href="#Footer">Contato</Nav.Link>
         </li>
       </ul>
     </nav>
